@@ -11,10 +11,21 @@ export default function LoginPage() {
   const [loading, setLoading] = useState("");
   const router = useRouter();
 
-  const handleOAuth = async (provider) => {
-    setLoading(provider);
-    await signIn(provider, { callbackUrl: "/" });
-  };
+ const handleOAuth = async (provider) => {
+   setLoading(provider);
+   try {
+     const result = await signIn(provider, { callbackUrl: "/", redirect: false });
+     if (result?.url) {
+       window.location.href = result.url;
+     } else {
+       setError("登录失败，请重试");
+       setLoading("");
+     }
+   } catch (err) {
+     setError("登录服务异常，请稍后重试");
+     setLoading("");
+   }
+ };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
