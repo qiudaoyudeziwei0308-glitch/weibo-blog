@@ -1,9 +1,22 @@
 "use client";
 import { useState } from "react";
+ import { useSession } from "next-auth/react";
+ import Link from "next/link";
 
 export default function ComposeBox({ onPost }) {
+  const { data: session } = useSession();
   const [content, setContent] = useState("");
   const [posting, setPosting] = useState(false);
+ 
+  if (!session) {
+    return (
+      <div className="border border-[var(--border)] rounded-2xl p-6 mb-4 text-center">
+        <p className="text-[var(--text-secondary)] text-sm mb-3">登录后即可发布动态</p>
+        <Link href="/login" className="px-5 py-1.5 rounded-full bg-[var(--primary)] text-white font-bold text-sm inline-block">登录</Link>
+      </div>
+    );
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!content.trim()) return;

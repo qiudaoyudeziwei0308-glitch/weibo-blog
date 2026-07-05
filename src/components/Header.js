@@ -1,9 +1,12 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+ import { useSession, signOut } from "next-auth/react";
 
 export default function Header() {
   const [dark, setDark] = useState(false);
+  const { data: session } = useSession();
+
   const toggleTheme = () => {
     const next = !dark;
     setDark(next);
@@ -18,6 +21,14 @@ export default function Header() {
          <Link href="/articles" className="font-medium hover:text-[var(--primary)]">文章</Link>
          <Link href="/tags" className="font-medium hover:text-[var(--primary)]">标签</Link>
          <Link href="/about" className="font-medium hover:text-[var(--primary)]">关于</Link>
+         {session ? (
+           <div className="flex items-center gap-2">
+             <span className="text-xs text-[var(--text-secondary)]">{session.user.name}</span>
+             <button onClick={() => signOut()} className="px-3 py-1 rounded-full border border-[var(--border)] text-xs hover:bg-[var(--bg-secondary)]">退出</button>
+           </div>
+         ) : (
+           <Link href="/login" className="px-3 py-1 rounded-full bg-[var(--primary)] text-white text-xs font-bold">登录</Link>
+         )}
          <button onClick={toggleTheme} className="px-3 py-1 rounded-full border border-[var(--border)] text-sm hover:bg-[var(--bg-secondary)]">
            {dark ? "☀️" : "🌙"}
          </button>

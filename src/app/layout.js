@@ -1,4 +1,5 @@
 import "./globals.css";
+ import AuthProvider from "@/components/AuthProvider";
 
 export const metadata = {
   title: "我的微博",
@@ -8,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
-      <body className="min-h-screen">{children}</body>
-    </html>
+     <body className="min-h-screen"><AuthProvider>{children}</AuthProvider></body>
+   </html>
   );
 }
