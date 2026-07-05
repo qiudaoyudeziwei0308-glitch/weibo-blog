@@ -13,6 +13,6 @@ export async function POST(request) {
   if (!content || !content.trim()) {
     return Response.json({ error: "内容不能为空" }, { status: 400 });
   }
-  const post = createPost(content.trim());
+  const post = createPost(content.trim(), session.user);
   return Response.json(post, { status: 201 });
 }

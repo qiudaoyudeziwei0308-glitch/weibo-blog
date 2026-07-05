@@ -1,7 +1,7 @@
 let posts = [
-  { id: "1", content: "今天开始用 Next.js 搭建个人微博！🚀 记录技术学习和生活点滴。", createdAt: new Date(Date.now() - 3600000 * 2).toISOString(), commentCount: 3, likeCount: 12 },
-  { id: "2", content: "刚看完《重构：改善既有代码的设计》，Martin Fowler 的经典之作，推荐给每个开发者。📚", createdAt: new Date(Date.now() - 3600000 * 24).toISOString(), commentCount: 5, likeCount: 28 },
-  { id: "3", content: "探索 Tailwind CSS v4 的新特性，Utility-first 依然是高效开发的好伙伴。🎨", createdAt: new Date(Date.now() - 3600000 * 48).toISOString(), commentCount: 1, likeCount: 8 },
+  { id: "1", content: "今天开始用 Next.js 搭建个人微博！🚀 记录技术学习和生活点滴。", createdAt: new Date(Date.now() - 3600000 * 2).toISOString(), commentCount: 3, likeCount: 12, userId: "1", userName: "Feng", userImage: "" },
+  { id: "2", content: "刚看完《重构：改善既有代码的设计》，Martin Fowler 的经典之作，推荐给每个开发者。📚", createdAt: new Date(Date.now() - 3600000 * 24).toISOString(), commentCount: 5, likeCount: 28, userId: "1", userName: "Feng", userImage: "" },
+  { id: "3", content: "探索 Tailwind CSS v4 的新特性，Utility-first 依然是高效开发的好伙伴。🎨", createdAt: new Date(Date.now() - 3600000 * 48).toISOString(), commentCount: 1, likeCount: 8, userId: "1", userName: "Feng", userImage: "" },
 ];
 
 let comments = {
@@ -58,17 +58,20 @@ export function getPost(id) {
   return posts.find((p) => p.id === id) || null;
 }
 
-export function createPost(content) {
+ export function createPost(content, user) {
   const post = {
     id: String(nextPostId++),
     content,
     createdAt: new Date().toISOString(),
     commentCount: 0,
     likeCount: 0,
+   userId: user?.id || "0",
+   userName: user?.name || "匿名",
+   userImage: user?.image || "",
   };
   posts.push(post);
   comments[post.id] = [];
-   saveAll();
+  saveAll();
   return post;
 }
  
@@ -100,6 +103,7 @@ export function createComment(postId, author, content) {
     author,
     content,
     time: "刚刚",
+   authorImage: "",
   };
   if (!comments[postId]) comments[postId] = [];
   comments[postId].push(comment);

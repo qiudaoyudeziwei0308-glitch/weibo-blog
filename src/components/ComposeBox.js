@@ -34,6 +34,15 @@ export default function ComposeBox({ onPost }) {
     setPosting(false);
   };
   return (
+   <div className="mb-4">
+     <div className="flex items-center gap-3 mb-3">
+       {session.user.image ? (
+         <img src={session.user.image} alt="" className="w-10 h-10 rounded-full object-cover" />
+       ) : (
+         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--primary)] to-purple-500 flex items-center justify-center text-white text-sm font-bold">{session.user.name[0]}</div>
+       )}
+       <span className="font-bold text-sm">{session.user.name}</span>
+     </div>
     <form onSubmit={handleSubmit} className="border border-[var(--border)] rounded-2xl p-4 mb-4">
       <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder="有什么想说的？"
         className="w-full bg-transparent border-none outline-none resize-none text-base min-h-[80px] placeholder:text-[var(--text-secondary)]" maxLength={500} />
@@ -45,5 +54,6 @@ export default function ComposeBox({ onPost }) {
         </button>
       </div>
     </form>
+   </div>
   );
 }

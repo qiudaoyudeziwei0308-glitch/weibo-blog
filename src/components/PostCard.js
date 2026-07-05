@@ -26,14 +26,22 @@ export default function PostCard({ post, expanded }) {
 
   const Wrapper = expanded ? "div" : Link;
   const wrapperProps = expanded ? {} : { href: "/posts/" + post.id };
+ 
+  const userInitial = (post.userName || "?")[0];
+  const Avatar = () => post.userImage ? (
+    <img src={post.userImage} alt="" className="w-10 h-10 rounded-full shrink-0 object-cover" />
+  ) : (
+    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--primary)] to-purple-500 flex items-center justify-center text-white text-sm font-bold shrink-0">{userInitial}</div>
+  );
+
   return (
     <Wrapper {...wrapperProps} className="block border border-[var(--border)] rounded-2xl p-4 hover:bg-[var(--bg-secondary)] transition-colors">
       <div className="flex gap-3">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--primary)] to-purple-500 flex items-center justify-center text-white text-sm font-bold shrink-0">F</div>
+        <Avatar />
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 text-sm">
-            <span className="font-bold">Feng</span>
-            <span className="text-[var(--text-secondary)]">@feng</span>
+            <span className="font-bold">{post.userName || "匿名"}</span>
+            <span className="text-[var(--text-secondary)]">@{post.userName}</span>
             <span className="text-[var(--text-secondary)]">·</span>
             <span className="text-[var(--text-secondary)] text-xs">{timeAgo(post.createdAt)}</span>
           </div>
