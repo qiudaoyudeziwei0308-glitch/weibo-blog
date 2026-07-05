@@ -27,13 +27,17 @@ let nextCommentId = 7;
  const path = require("path");
  const DATA_DIR = path.join(process.cwd(), "data");
  
- function saveAll() {
-   const dir = DATA_DIR;
-   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-   fs.writeFileSync(path.join(dir, "posts.json"), JSON.stringify(posts, null, 2), "utf-8");
-   fs.writeFileSync(path.join(dir, "comments.json"), JSON.stringify(comments, null, 2), "utf-8");
-   fs.writeFileSync(path.join(dir, "meta.json"), JSON.stringify({ nextPostId, nextCommentId }), "utf-8");
- }
+function saveAll() {
+  try {
+    const dir = DATA_DIR;
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, "posts.json"), JSON.stringify(posts, null, 2), "utf-8");
+    fs.writeFileSync(path.join(dir, "comments.json"), JSON.stringify(comments, null, 2), "utf-8");
+    fs.writeFileSync(path.join(dir, "meta.json"), JSON.stringify({ nextPostId, nextCommentId }), "utf-8");
+  } catch (e) {
+    // Vercel 环境无法写文件，静默降级为内存存储
+  }
+}
  
  // 尝试从文件恢复数据，失败则用默认数据
  try {

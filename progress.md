@@ -1,6 +1,22 @@
  # Progress Log
  
- ## Session: 2026-07-05
+## Session: 2026-07-05
+ 
+ ### Phase 7: 部署上线
+ - **Status:** complete
+ - **Started:** 2026-07-05 17:05
+ - Actions taken:
+   - Git 提交所有代码
+   - 用户手动推送到 GitHub
+   - 用户通过 Vercel 网页部署
+   - 博客成功上线公网
+ - Files created/modified:
+   - .gitignore (updated)
+ 
+ ## 5-Question Reboot Check
+ | Question | Answer |
+ |----------|--------|
+ | Where am I? | Phase 7 - 部署上线 ✅ |
  
  ### Phase 1-2: 基础框架 + 核心功能
  - **Status:** complete

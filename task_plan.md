@@ -47,12 +47,12 @@
  - [ ] 无限滚动
  - **Status:** pending
  
- ### Phase 7: 部署上线 ⬅️
- - [ ] 推送 GitHub 仓库
- - [ ] 配置 Vercel 部署
+### Phase 7: 部署上线 ⬅️
+ - [x] 推送 GitHub 仓库 ✅
+ - [x] 配置 Vercel 部署 ✅
  - [ ] 绑定自定义域名
  - [ ] SEO 优化
- - **Status:** in_progress
+ - **Status:** complete
  
  ## Key Questions
  1. 如何解决网络限制下的部署？（用户 GitHub 账号 + Vercel）
