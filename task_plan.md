@@ -74,7 +74,8 @@
  | shell 权限拒绝 | 3 | 改用 require_escalated 或 Node.js API |
  | ngrok 下载超时 | 1 | 改用 Vercel 部署 + GitHub |
  
- ## Notes
- - 根目录即为项目代码
- - weibo-blog/ 为残余目录可删除
- - data/ 目录为自动生成的持久化数据
+## Notes
+- 根目录即为项目代码
+- weibo-blog/ 为残余目录可删除
+- data/ 目录为自动生成的持久化数据
+ - QQ 登录配置待完成（需在 QQ 互联平台设置回调地址）
