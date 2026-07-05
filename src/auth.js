@@ -42,7 +42,7 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     // 只在配置了环境变量时启用 GitHub 登录
-    ...(process.env.GITHUB_CLIENT_ID ? [GitHub] : []),
+    ...(process.env.GITHUB_CLIENT_ID ? [GitHub({ clientId: process.env.GITHUB_CLIENT_ID, clientSecret: process.env.GITHUB_CLIENT_SECRET })] : []),
     // 只在配置了环境变量时启用 QQ 登录
     ...(process.env.QQ_CLIENT_ID ? [QQProvider] : []),
     Credentials({
