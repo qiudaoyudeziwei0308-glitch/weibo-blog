@@ -45,9 +45,13 @@ export default function PostDetail() {
           {comments.map((c, i) => (
             <div key={c.id || i} className="border border-[var(--border)] rounded-xl p-4">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 rounded-full bg-[var(--primary)] flex items-center justify-center text-white text-sm font-bold">
-                  {c.author?.[0] || "?"}
-                </div>
+                {c.authorImage ? (
+                  <img src={c.authorImage} alt="" className="w-8 h-8 rounded-full object-cover" />
+                ) : (
+                  <div className="w-8 h-8 rounded-full bg-[var(--primary)] flex items-center justify-center text-white text-sm font-bold">
+                    {c.author?.[0] || "?"}
+                  </div>
+                )}
                 <span className="font-bold text-sm">{c.author}</span>
                 <span className="text-[var(--text-secondary)] text-xs">{c.time}</span>
               </div>

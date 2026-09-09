@@ -97,13 +97,13 @@ export function getComments(postId) {
   return comments[postId] || [];
 }
 
-export function createComment(postId, author, content) {
+export function createComment(postId, author, content, user) {
   const comment = {
     id: "c" + nextCommentId++,
-    author,
+    author: user?.name || author || "匿名",
     content,
     time: "刚刚",
-   authorImage: "",
+   authorImage: user?.image || "",
   };
   if (!comments[postId]) comments[postId] = [];
   comments[postId].push(comment);
