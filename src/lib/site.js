@@ -11,8 +11,7 @@
     name: "黎3367",
      tagline: "正在开发自己的blog",
      // 头像：留空则显示名字首字渐变头像
-     // 想用图片的话填 URL，例如 https://github.com/xxx.png
-     avatar: "",
+     avatar: "/images/avatar.jpg",
      about: `你好，我是黎3367，欢迎来到我的小站。
 
  这里是我分享生活、记录想法的地方。平时喜欢折腾各种有意思的东西，也会把学到的东西沉淀成文字。
