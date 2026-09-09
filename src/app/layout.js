@@ -1,9 +1,10 @@
 import "./globals.css";
- import AuthProvider from "@/components/AuthProvider";
+import AuthProvider from "@/components/AuthProvider";
+ import { site } from "@/lib/site";
 
 export const metadata = {
-  title: "我的微博",
-  description: "分享想法，记录生活",
+  title: site.title,
+  description: site.description,
 };
 
 export default function RootLayout({ children }) {

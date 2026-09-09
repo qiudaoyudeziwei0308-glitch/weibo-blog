@@ -1,7 +1,7 @@
 let posts = [
-  { id: "1", content: "今天开始用 Next.js 搭建个人微博！🚀 记录技术学习和生活点滴。", createdAt: new Date(Date.now() - 3600000 * 2).toISOString(), commentCount: 3, likeCount: 12, userId: "1", userName: "Feng", userImage: "" },
-  { id: "2", content: "刚看完《重构：改善既有代码的设计》，Martin Fowler 的经典之作，推荐给每个开发者。📚", createdAt: new Date(Date.now() - 3600000 * 24).toISOString(), commentCount: 5, likeCount: 28, userId: "1", userName: "Feng", userImage: "" },
-  { id: "3", content: "探索 Tailwind CSS v4 的新特性，Utility-first 依然是高效开发的好伙伴。🎨", createdAt: new Date(Date.now() - 3600000 * 48).toISOString(), commentCount: 1, likeCount: 8, userId: "1", userName: "Feng", userImage: "" },
+  { id: "1", content: "今天开始用 Next.js 搭建个人微博！🚀 记录技术学习和生活点滴。", createdAt: new Date(Date.now() - 3600000 * 2).toISOString(), commentCount: 3, likeCount: 12, userId: "1", userName: "黎3367", userImage: "" },
+  { id: "2", content: "刚看完《重构：改善既有代码的设计》，Martin Fowler 的经典之作，推荐给每个开发者。📚", createdAt: new Date(Date.now() - 3600000 * 24).toISOString(), commentCount: 5, likeCount: 28, userId: "1", userName: "黎3367", userImage: "" },
+  { id: "3", content: "探索 Tailwind CSS v4 的新特性，Utility-first 依然是高效开发的好伙伴。🎨", createdAt: new Date(Date.now() - 3600000 * 48).toISOString(), commentCount: 1, likeCount: 8, userId: "1", userName: "黎3367", userImage: "" },
 ];
 
 let comments = {

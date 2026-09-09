@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
- import { useSession, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
+ import { site } from "@/lib/site";
 
 export default function Header() {
   const [dark, setDark] = useState(false);
@@ -15,7 +16,7 @@ export default function Header() {
  return (
    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--bg)]/80 backdrop-blur-sm">
      <div className="max-w-2xl mx-auto px-4 h-14 flex items-center justify-between">
-       <Link href="/" className="text-xl font-bold text-[var(--primary)]">&#x1F4AC; 我的微博</Link>
+       <Link href="/" className="text-xl font-bold text-[var(--primary)]">&#x1F4AC; {site.title}</Link>
        <nav className="flex items-center gap-4 text-sm">
          <Link href="/" className="font-medium hover:text-[var(--primary)]">首页</Link>
          <Link href="/articles" className="font-medium hover:text-[var(--primary)]">文章</Link>
