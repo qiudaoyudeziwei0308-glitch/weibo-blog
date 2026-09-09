@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
- import Link from "next/link";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -88,9 +87,6 @@ export default function LoginPage() {
            {loading === "credentials" ? "登录中..." : "登录"}
          </button>
        </form>
-       <div className="text-center mt-4">
-         <Link href="/" className="text-xs text-[var(--text-secondary)] hover:text-[var(--primary)]">← 返回首页</Link>
-       </div>
      </div>
     </div>
   );
