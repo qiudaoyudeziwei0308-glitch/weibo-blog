@@ -7,9 +7,9 @@
    description: "分享想法，记录生活",
 
    // 个人资料
-   profile: {
-     name: "黎3367",
-     tagline: "分享想法，记录生活",
+  profile: {
+    name: "黎3367",
+     tagline: "正在开发自己的blog",
      // 头像：留空则显示名字首字渐变头像
      // 想用图片的话填 URL，例如 https://github.com/xxx.png
      avatar: "",
